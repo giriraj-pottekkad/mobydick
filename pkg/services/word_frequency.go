@@ -8,7 +8,7 @@ type WordFreq struct {
 }
 
 func (p WordFreq) String() string {
-	return fmt.Sprintf("%s %d", p.Word, p.Freq)
+	return fmt.Sprintf("%d %s", p.Freq, p.Word)
 }
 
 type ByFreq []WordFreq
