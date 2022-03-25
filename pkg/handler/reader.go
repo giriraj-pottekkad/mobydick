@@ -7,6 +7,7 @@ import (
 	word "mobydick/pkg/services"
 	"regexp"
 	"sort"
+	"strings"
 )
 
 func ReadFile(filepath string, count int) {
@@ -15,10 +16,10 @@ func ReadFile(filepath string, count int) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	
+	text := strings.ToLower(string(bs))
 
-	text := string(bs)
-
-	re := regexp.MustCompile("[a-zA-Z']+")
+	re := regexp.MustCompile("[a-zA-Z]+")
 	matches := re.FindAllString(text, -1)
 
 	words := make(map[string]int)
